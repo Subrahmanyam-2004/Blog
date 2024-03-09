@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: "";
+            background-color: lightcyan;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1 {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+    <title>Blog</title>
+   
+</head>
+<body> <hr>
+    <center><h1 >Blog</h1> <hr>
+     <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <h2><a href="/show/<%= post._id %>"><%= post.title %></a></h2>
+                <p><%= post.content %></p>
+                <p class="date">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></p>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/new"><button>Create New Post</button></a></center>
+</body>
+</html>

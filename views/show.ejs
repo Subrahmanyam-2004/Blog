@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+            background-image: "";
+            background-color: lightcyan;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+    }
+    h1 {
+            color: red;
+    }
+    
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+p{
+    font-style: italic;
+}
+
+form {
+    max-width: 500px;
+    margin: 20px 0;
+}
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+    </style>
+    <title><%= post.title %></title>
+</head>
+
+<body>
+    <h1><%= post.title %></h1>
+    <p class="date">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></p>
+    <p><%= post.content %></p>
+
+    <a href="/"><button>Back to Home</button></a>
+    
+    
+        <a href="/edit/<%= post._id %>"><button>Edit Post</button></a>
+<a href="/delete/<%= post._id %>" onclick="return confirm('Are you sure you want to delete this post?')"><button>Delete Post</button></a>
+
+        </form>
+    
+</body>
+
+</html>
